@@ -15,12 +15,9 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-Route::get('/products/list', [ProductController::class, 'index'])->name('products.index');
+Route::get('/', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{slug}', [ProductController::class, 'ProductDetail'])->name('products.detail');
 Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.store');
 Route::post('/check-quantity', [ProductController::class, 'checkQuantity'])->name('check.total');
